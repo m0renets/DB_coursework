@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Головна сторінка</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <header>
+        <h1>Університет "Прикладної інформатики"</h1>
+        <h2>Веб-застосунок для управління освітнім процесом</h2>
+    </header>
+    <main class="main_center_align">
+        <section>
+            <h3>Опис можливостей сайту</h3>
+            <p>Цей сайт дозволяє студентам і викладачам взаємодіяти з базою даних навчального процесу. Ви можете:</p>
+            <ul>
+                <li>Переглядати список екзаменів для студентів.</li>
+                <li>Отримувати інформацію про бали студентів.</li>
+                <li>Викладачі можуть змінювати бали студентів.</li>
+                <li>Переглядати рейтинг студентів за середнім балом.</li>
+            </ul>
+        </section>
+        <section style="display: flex; justify-content: space-around; gap: 30px;">
+            <div>
+                <h3>Розділи для студентів</h3>
+                <ul>
+                    <li><a href="/exams">Список екзаменів</a></li>
+                    <li><a href="/student_scores">Бали студента</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Розділи для викладачів</h3>
+                <ul>
+                    <li><a href="/update_score">Зміна оцінки</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Загальні розділи</h3>
+                <ul>
+                    <li><a href="/rating">Рейтинг студентів</a></li>
+                </ul>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

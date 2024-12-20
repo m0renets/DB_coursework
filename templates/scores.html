@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Результати студента</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <header>
+        <h1>Університет "Прикладної інформатики"</h1>
+        <nav class="main_page_link">
+            <a href="/">Головна</a>
+        </nav>
+    </header>
+    <main>
+        <h1>Результати студента</h1>
+        <form method="POST" action="/student_scores">
+            <label for="student_name"></label>
+            <input type="text" id="student_name" name="student_name" placeholder="Введіть ім'я студента" value="{{ student_name }}" required>
+            <button type="submit">Отримати список балів</button>
+        </form>
+
+        {% if performance %}
+        <h2>Результати студента</h2>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Назва дисципліни</th>
+                    <th>ПІБ викладача</th>
+                    <th>Звітність</th>
+                    <th>Бал</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for course_name, teacher_name, reporting, score in performance %}
+                <tr>
+                    <td>{{ course_name }}</td>
+                    <td>{{ teacher_name }}</td>
+                    <td>{{ reporting }}</td>
+                    <td>{{ score }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <h3>Додаткова інформація</h3>
+        <p><strong>Студент:</strong> {{ student_name }}</p>
+        <p><strong>Група:</strong> {{ group_name }}</p>
+        <p><strong>Середній бал:</strong> {{ avg_score }}</p>
+
+        <div class="diploma-button">
+            <form action="/generate_diploma" method="POST" target="_blank">
+                <input type="hidden" name="student_name" value="{{ student_name }}">
+                <button type="submit" class="generate-diploma">Сформувати вкладку до диплому</button>
+            </form>
+        </div>
+        
+        
+
+        
+        {% endif %}
+    </main>
+</body>
+</html>

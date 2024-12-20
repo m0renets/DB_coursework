@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diploma</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+
+        .diploma-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #007bb5;
+            font-size: 2.5rem;
+        }
+
+        .details {
+            margin: 20px 0;
+            font-size: 1.2rem;
+        }
+
+        .course-list {
+            margin-top: 20px;
+        }
+
+        .course-list table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 1.1rem;
+        }
+
+        .course-list th, .course-list td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        .course-list th {
+            background-color: #007bb5;
+            color: white;
+        }
+
+        .average {
+            font-weight: bold;
+            font-size: 1.3rem;
+            margin-top: 20px;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="diploma-container">
+        <h1>Додаток до диплому</h1>
+        <div class="details">
+            <p><strong>Студент:</strong> {{ student_name }}</p>
+            <p><strong>Група:</strong> {{ group_name }}</p>
+            <p><strong>Середній бал:</strong> {{ avg_score }}</p>
+        </div>
+
+        <div class="course-list">
+            <h2>Деталі курсу</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Предмет</th>
+                        <th>Оцінка</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for course in courses %}
+                    <tr>
+                        <td>{{ course.name }}</td>
+                        <td>{{ course.score }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Score</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <header>
+        <h1>Університет "Прикладної інформатики"</h1>
+        <nav class="main_page_link">
+            <a href="/">Головна</a>
+        </nav>
+    </header>
+    <main>
+        <h1>Update Student Score</h1>
+    
+        <!-- Повідомлення -->
+        {% if message %}
+        <div class="message">
+            {{ message }}
+        </div>
+        {% endif %}
+    
+        <form method="GET" action="/update_score">
+            <label for="student_name">Студент:</label>
+            <input type="text" id="student_name" name="student_name" value="{{ student_name }}" required>
+            <button type="submit">Знайти курси</button>
+        </form>
+        <br>
+    
+        {% if courses %}
+        <form method="POST" action="/update_score">
+            <label for="student_name">Студент:</label>
+            <input type="text" id="student_name" name="student_name" value="{{ student_name }}" readonly>
+            <br><br>
+    
+            <label for="course_id">Предмет:</label>
+            <select id="course_id" name="course_id" required>
+                {% for course_id, course_name in courses %}
+                    <option value="{{ course_id }}">{{ course_name }}</option>
+                {% endfor %}
+            </select>
+            <br><br>
+    
+            <div class="score-form">
+                <label for="score">Оцінка:</label>
+                <input type="number" id="score" name="score" min="0" max="100" required>
+            </div>
+    
+            <button type="submit">Заповнити форму</button>
+        </form>
+        {% elif student_name %}
+        <p>Немає курсів для студента {{ student_name }}.</p>
+        {% endif %}
+    </main>
+    
+</body>
+</html>

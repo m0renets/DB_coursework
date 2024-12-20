@@ -1,0 +1,246 @@
+/* Загальні стилі */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #eaf6ff;
+    color: #333;
+    line-height: 1.6;
+}
+
+header {
+    background-color: #007bb5;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 3rem;
+    margin: 0;
+}
+
+header h2 {
+    font-size: 1.5rem;
+    margin: 5px 0 0;
+}
+
+nav {
+    margin: 10px 0;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: none;
+    cursor:pointer;
+}
+
+/* Стилі для основного контенту */
+main {
+    padding: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    
+}
+
+.main_center_align {
+    width: calc(100% - 160px);
+}
+
+section {
+    margin-bottom: 30px;
+}
+
+section h3 {
+    color: #007bb5;
+    font-size: 2rem;
+    border-bottom: 2px solid #007bb5;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    margin-bottom: 10px;
+    cursor:default;
+}
+
+ul li a {
+    color: #007bb5;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Стилі для таблиць */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 1.2rem;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+table th, table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+}
+
+table th {
+    background-color: #007bb5;
+    color: white;
+    font-weight: bold;
+}
+
+table tr:nth-child(even) {
+    background-color: #f2f9ff;
+}
+
+table tr:hover {
+    background-color: #d9efff;
+}
+
+/* Кнопки */
+button {
+    display: inline-block;
+    background-color: #007bb5;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #005c99;
+}
+
+input[type="text"] {
+    width: 300px; /* Зробити поле ширшим */
+    padding: 10px; /* Додати внутрішні відступи */
+    font-size: 1rem; /* Збільшити розмір тексту */
+    border: 2px solid #007bb5; /* Синя рамка */
+    border-radius: 5px; /* Закруглені краї */
+    outline: none; /* Видалити стандартну рамку при фокусі */
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus {
+    border-color: #005c99; /* Темніша рамка при фокусі */
+    box-shadow: 0 0 5px rgba(0, 123, 181, 0.5); /* Додати підсвічування */
+}
+
+input[type="number"] {
+    width: 100px; /* Ширина поля */
+    padding: 10px; /* Внутрішні відступи */
+    font-size: 1rem; /* Розмір тексту */
+    border: 2px solid #007bb5; /* Синя рамка */
+    border-radius: 5px; /* Закруглені краї */
+    background-color: #f9f9f9; /* Світлий фон */
+    color: #333; /* Колір тексту */
+    appearance: textfield; /* Видалити стандартні стрілки для браузерів */
+    margin-bottom: 15px; /* Відступ знизу */
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none; /* Вимикаємо стандартні стрілки в Chrome */
+    margin: 0; /* Вирівнюємо поле */
+}
+
+/* Повідомлення */
+.alert {
+    text-align: center;
+    padding: 10px;
+    margin: 20px 0;
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    border-radius: 5px;
+}
+
+select {
+    width: 300px;
+    padding: 10px;
+    font-size: 1rem;
+    border: 2px solid #007bb5;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    color: #333;
+    margin-bottom: 15px;
+    position: relative;
+    appearance: none; /* Відключаємо стандартний вигляд */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath fill='%23007bb5' d='M6 8l4 4 4-4H6z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 35px;
+    padding-right: 35px; /* Додаткове місце для іконки */
+}
+
+select:focus {
+    border-color: #005c99;
+    box-shadow: 0 0 5px rgba(0, 123, 181, 0.5);
+    outline: none;
+    background-image: url(#);
+}
+
+/* Додатковий текст */
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+#exam_button {
+    display: block;
+}
+
+.main_page_link {
+    text-align: left;
+    margin-left: 5%;
+    margin-block: 0;
+    font-size: 1.5rem;
+}
+
+/* Для мобільних пристроїв */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    header h2 {
+        font-size: 1.2rem;
+    }
+
+    main {
+        padding: 20px;
+    }
+
+    table {
+        font-size: 1rem;
+    }
+}

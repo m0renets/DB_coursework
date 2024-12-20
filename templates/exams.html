@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список екзаменів</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <header>
+        <h1>Університет "Прикладної інформатики"</h1>
+        <nav class="main_page_link">
+            <a href="/">Головна</a>
+        </nav>
+    </header>
+    <main>
+        <h1>Список екзаменів</h1>
+        <form method="POST" action="/exams">
+            <label for="specialization">Спеціальність:</label>
+            <select name="specialization" id="specialization" required>
+                <option value="122" {% if specialization == '122' %}selected{% endif %}>Computer Science</option>
+                <option value="124" {% if specialization == '124' %}selected{% endif %}>System Analysis</option>
+            </select>
+            
+            <label for="semester">Курс:</label>
+            <select name="semester" id="semester" required>
+                <option value="1" {% if semester == '1' %}selected{% endif %}>1</option>
+                <option value="2" {% if semester == '2' %}selected{% endif %}>2</option>
+                <option value="3" {% if semester == '3' %}selected{% endif %}>3</option>
+                <option value="4" {% if semester == '4' %}selected{% endif %}>4</option>
+            </select>
+            
+            <button type="submit" id="exam_button">Показати екзамени</button>
+        </form>
+        
+
+        {% if exams %}
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Назва предмета</th>
+                    <th>Викладач</th>
+                    <th>Тип звітності</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for exam in exams %}
+                <tr>
+                    <td>{{ exam[0] }}</td>
+                    <td>{{ exam[1] }}</td>
+                    <td>{{ exam[2] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        {% else %}
+        <p>Оберіть спеціальність та курс</p>
+        {% endif %}
+
+    </main>
+</body>
+</html>

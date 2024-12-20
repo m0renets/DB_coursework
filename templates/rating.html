@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Рейтинг студентів</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <header>
+        <h1>Університет "Прикладної інформатики"</h1>
+        <nav class="main_page_link">
+            <a href="/">Головна</a>
+        </nav>
+    </header>
+    <main>
+        <h1>Рейтинг студентів</h1>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>№</th>
+                    <th>Студент</th>
+                    <th>Група</th>
+                    <th>Середній бал</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for rank, student_name, group_name, avg_score in ranked_list %}
+                <tr>
+                    <td>{{ rank }}</td>
+                    <td>{{ student_name }}</td>
+                    <td>{{ group_name }}</td>
+                    <td>{{ avg_score }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </main>
+</body>
+</html>
